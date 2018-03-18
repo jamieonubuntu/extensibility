@@ -21,8 +21,17 @@
     <h1>Blog</h1>
     <hr>
 <?php $bloglist = json_decode(file_get_contents('blog/object.json', true));
-echo $bloglist->blog->{2018}->{"disabling-tls1.0-tls1.1"}->title;
+//echo $bloglist->blog->{2018}->{"disabling-tls1.0-tls1.1"}->title;
 
+
+foreach($bloglist->blog as $year) {
+    //echo var_dump($year);
+    foreach($year as $post) {
+        echo "<h3 class=\"no-mar-bottom\"><a href=\"/blog/" . $post->uri . "/\">" . $post->title . "</a></h3>
+        <p class=\"two-no-mar\"><b>" . $post->longdesc . "</b></p>
+        <p class=\"two-mar-top\">" . $post->date . "</p>";
+    }
+}
 
 ?>
     <br><div class="blog-group">
