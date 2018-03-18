@@ -2,30 +2,38 @@
     "blog": {
         "2018": {
             "disabling-tls1.0-tls1.1": {
-                "date": "Tuesday 13th March 2018",
+                "uri": "disabling-tls1.0-tls1.1",
+                "navtitle": "Disabling Older TLS Versions",
+                "title": "Disabling TLS 1.0 and TLS 1.1",
                 "longdesc": "long description",
                 "shortdesc": "short description",
-                "title": "Disabling TLS 1.0 and TLS 1.1"
+                "date": "Tuesday 13th March 2018"
             },
             "namecoin-bit-domain": {
-                "date": "Tuesday 16th January 2018",
+                "uri": "namecoin-bit-domain",
+                "navtitle": "Namecoin .bit Domain",
+                "title": "Registering a Namecoin .bit Domain",
                 "longdesc": "long description",
                 "shortdesc": "short description",
-                "title": "Registering a Namecoin .bit Domain"
+                "date": "Tuesday 16th January 2018"
             }
         },
         "2017": {
             "security-txt-rfc": {
-                "date": "Tuesday 26th December 2017",
+                "uri": "security-txt-rfc",
+                "navtitle": "security.txt Internet Draft",
+                "title": "security.txt Internet Draft",
                 "longdesc": "long description",
                 "shortdesc": "short description",
-                "title": "security.txt Internet Draft"
+                "date": "Tuesday 26th December 2017"
             },
             "onionv3-hidden-service": {
-                "date": "Saturday 21st October 2017",
+                "uri": "onionv3-hidden-service",
+                "navtitle": "Tor Onion v3 Hidden Service",
+                "title": "Tor Onion v3 Hidden Service",
                 "longdesc": "long description",
                 "shortdesc": "short description",
-                "title": "Tor Onion v3 Hidden Service"
+                "date": "Saturday 21st October 2017"
             }
         }
     }
