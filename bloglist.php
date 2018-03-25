@@ -42,7 +42,12 @@
             foreach($year as $post) {
                 echo "            <h3 class=\"no-mar-bottom\"><a href=\"/blog/" . $post->uri . "/\">" . $post->title . "</a></h3>
             <p class=\"two-no-mar\"><b>" . $post->longdesc . "</b></p>
-            <p class=\"two-mar-top\">" . $post->date . "</p>\n\n";
+            <p class=\"two-mar-top\">" . $post->date . "</p>
+            <p class=\"tags\">\n";
+                foreach(explode(",", $post->tags) as $tag) {
+                    echo "                <span class=\"tag-" . strtolower($tag) . "\">" . $tag . "</span>\n";
+                }
+                echo "            </p>\n\n";
             }
             echo "        </div>
     </div>";
