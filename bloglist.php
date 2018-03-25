@@ -2,11 +2,13 @@
     $bloglist = json_decode(file_get_contents('blog/object.json', true));
 
     if($location === "navbar") {
+        echo "<h4>\n";
         foreach($bloglist->blog as $year) {
             foreach($year as $post) {
-                echo "<a href=\"/blog/" . $post->uri . "/\">" . $post->navtitle . "</a>\n";
+                echo "                        <a href=\"/blog/" . $post->uri . "/\">" . $post->navtitle . "</a>\n";
             }
         }
+        echo "                    </h4>\n";
     }
 
     if($location === "recents") {
@@ -47,7 +49,7 @@
                 foreach(explode(",", $post->tags) as $tag) {
                     echo "                <span class=\"tag-" . strtolower($tag) . "\">" . $tag . "</span>\n";
                 }
-                echo "            </p>\n\n";
+                echo "            </p>\n";
             }
             echo "        </div>
     </div>";
