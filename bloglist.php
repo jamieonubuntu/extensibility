@@ -1,4 +1,4 @@
-<?php function bloglist($location, $category) {
+<?php function bloglist($location, $category = null) {
     $bloglist = json_decode(file_get_contents('blog/posts.json', true));
     if($location === "navbar") {
         echo "<h4>\n";
@@ -53,7 +53,10 @@
         }
     }
     elseif($location === "tag") {
-        echo "\n    <div class=\"blog-list\">\n";
+        echo "\n    <h1>Category: '" . $category . "'</h1>
+    <hr>
+
+    <div class=\"blog-list\">\n";
         foreach($bloglist->blog as $year) {
             foreach($year as $post) {
                 $tags = explode(",", $post->tags);
