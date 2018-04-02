@@ -25,6 +25,24 @@
             }
         }
     }
+    elseif($location === "nextprev") {
+        $currentPost = basename(getcwd());
+        foreach($bloglist->blog as $year) {
+            foreach($year as $post) {
+                if($post->uri === $currentPost || isset($found)) {
+                    if(isset($found)) {
+                        echo "newer post is " . $nextPost->uri;
+                        echo "<br><br>older post is " . $post->uri;
+                        break 2;
+                    }
+                    $found = true;
+                }
+                if(!isset($found)) {
+                    $nextPost = $post;
+                }
+            }
+        }
+    }
     elseif($location === "blog") {
         $latestYear = 2018; //Temporary year code
         foreach($bloglist->blog as $year) {
@@ -44,7 +62,7 @@
             <p class=\"two-no-mar\">" . $post->date . "</p>
             <p class=\"tags\">\n";
                 foreach(explode(",", $post->tags) as $tag) {
-                    echo "                <b><a href=\"/blog/category/" . strtolower($tag) . "/\"><b><span class=\"tag-" . strtolower($tag) . "\">" . $tag . "</span></b></a>\n";
+                    echo "                <b><a href=\"/blog/category/" . strtolower($tag) . "/\"><span class=\"tag-" . strtolower($tag) . "\">" . $tag . "</span></a></b>\n";
                 }
                 echo "            </p>\n";
             }
