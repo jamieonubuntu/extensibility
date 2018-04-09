@@ -27,21 +27,37 @@
     }
     elseif($location === "nextprev") {
         $currentPost = basename(getcwd());
+        $currentPost = "letsencrypt-scts-in-certificates";
         foreach($bloglist->blog as $year) {
             foreach($year as $post) {
                 if($post->uri === $currentPost || isset($found)) {
                     if(isset($found)) {
-                        echo "newer post is " . $nextPost->uri;
-                        echo "<br><br>older post is " . $post->uri;
-                        break 2;
+                        echo "    <div class=\"nextprev float-right left-text\">
+        <p class=\"no-mar-bottom\">Next post:</p>
+        <h3 class=\"no-mar-bottom\"><a href=\"/blog/" . $post->uri . "/\">" . $post->title . "</a></h3>
+        <p class=\"two-no-mar\"><b>" . $post->longdesc . "</b></p>
+        <p class=\"two-no-mar\">" . $post->date . "</p>
+        <p class=\"tags\">\n";
+                        foreach(explode(",", $post->tags) as $tag) {
+                        echo "            <b><a href=\"/blog/category/" . strtolower($tag) . "/\"><span class=\"tag-" . strtolower($tag) . "\">" . $tag . "</span></a></b>\n";
+                }
+                echo "        </p>
+    </div>\n";
+                        return;
                     }
                     $found = true;
+                    if(!isset($nextPost)) {
+                        echo "this is the latest post";
+                    } else {
+                        echo "newer post is " . $nextPost->uri;
+                    }
                 }
                 if(!isset($found)) {
                     $nextPost = $post;
                 }
             }
         }
+        echo "this is the last post";
     }
     elseif($location === "blog") {
         $latestYear = 2018; //Temporary year code
